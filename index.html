@@ -58,6 +58,12 @@
             text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.8);
         }
 
+        .btn-container {
+            display: flex;
+            gap: 20px; /* Space between buttons */
+            margin-top: 20px;
+        }
+
         .btn {
             padding: 15px 40px;
             font-size: 1.5rem;
@@ -78,8 +84,7 @@
 
         #no-btn {
             position: relative;
-            margin-left: 20px;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease; /* Smooth transition */
         }
 
         .hidden {
@@ -124,25 +129,27 @@
 
     <div class="container">
         <h1>Sweta, My Love 💖</h1>
-        <p>Even though you're in **Russia** becoming an amazing doctor, and I'm in the **UK** chasing my cybersecurity dreams,  
+        <p>
         my heart has always belonged to you. Distance can never change what we share.  
         You are my best friend, my greatest love, and my forever.  
-        So today, on **Proposal Day**, I have a question for you…</p>
+        So today, on Proposal Day, I have a question for you…</p>
 
         <h2>Will You Marry Me? 💍</h2>
 
-        <button class="btn" onclick="showSurprise()">Yes! I will! 💕</button>
-        <button id="no-btn" class="btn" onmouseover="moveNo()">No 😢</button>
+        <div class="btn-container">
+            <button class="btn" onclick="showSurprise()">Yes! I will! 💕</button>
+            <button id="no-btn" class="btn" onmouseover="moveNo()">No 😢</button>
+        </div>
 
         <div id="surprise-message" class="hidden">
-            <h2>Yay! I love you forever, Sweta! 💖</h2>
+            <h2>Yay! I love you forever, Sweta 💖</h2>
             <p>Now let’s make all our dreams come true together! 💑</p>
         </div>
     </div>
 
     <!-- Fullscreen Message -->
     <div id="fullscreen-message" class="fullscreen">
-        ❤️ I love you so much more than anything in the world and miss you so much, baby. ❤️
+        ❤️ I love you more than anything in the world and miss you so much, my love ❤️
     </div>
 
     <script>
@@ -153,8 +160,9 @@
 
         function moveNo() {
             let noButton = document.getElementById('no-btn');
-            let x = Math.random() * 50 + 50; // Moves left or right randomly
-            let y = Math.random() * 50 + 20; // Moves up or down randomly
+            // Smooth dodging behavior
+            let x = Math.random() * 200 - 100; // Random move between -100px and +100px
+            let y = Math.random() * 200 - 100; // Random move between -100px and +100px
             noButton.style.transform = `translate(${x}px, ${y}px)`;
         }
     </script>
