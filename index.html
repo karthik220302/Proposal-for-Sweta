@@ -105,14 +105,14 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* Fullscreen Mode */
+        /* Fullscreen Message Styles */
         .fullscreen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            display: flex;
+            display: none;
             justify-content: center;
             align-items: center;
             background: rgba(0, 0, 0, 0.9);
@@ -120,6 +120,10 @@
             font-size: 3rem;
             text-align: center;
             z-index: 3;
+        }
+
+        .fullscreen.active {
+            display: flex;
         }
     </style>
 </head>
@@ -149,17 +153,15 @@
         </div>
     </div>
 
-    <!-- Fullscreen Message After "Yes" -->
-    <div id="fullscreen-message" class="fullscreen hidden">
+    <!-- Fullscreen Message -->
+    <div id="fullscreen-message" class="fullscreen">
         ❤️ Sweta, you are my everything. Let's make this love last forever! ❤️
     </div>
 
     <script>
         function showSurprise() {
-            document.getElementById('surprise-message').classList.remove('hidden');
-
-            // Make Video Fullscreen After Clicking "Yes"
-            document.getElementById('fullscreen-message').classList.remove('hidden');
+            // Show fullscreen message and keep video playing
+            document.getElementById('fullscreen-message').classList.add('active');
         }
 
         function moveNo() {
