@@ -84,7 +84,7 @@
 
         #no-btn {
             position: relative;
-            transition: all 0.4s ease; /* Smooth transition */
+            transition: all 0.1s ease; /* Super-fast transition for dodging */
         }
 
         .hidden {
@@ -129,10 +129,10 @@
 
     <div class="container">
         <h1>Sweta, My Love 💖</h1>
-        <p>
-        my heart has always belonged to you. Distance can never change what we share.  
-        You are my best friend, my greatest love, and my forever.  
-        So today, on Proposal Day, I have a question for you…</p>
+        <p>My heart has always belonged to you. Distance can never change what we share.  
+           You are my best friend, my greatest love, and my forever.  
+           So today, on Proposal Day, I have a question for you…</p>
+
 
         <h2>Will You Marry Me? 💍</h2>
 
@@ -142,14 +142,14 @@
         </div>
 
         <div id="surprise-message" class="hidden">
-            <h2>Yay! I love you forever, Sweta 💖</h2>
+            <h2>Yay! I love you forever, Sweta! 💖</h2>
             <p>Now let’s make all our dreams come true together! 💑</p>
         </div>
     </div>
 
     <!-- Fullscreen Message -->
     <div id="fullscreen-message" class="fullscreen">
-        ❤️ I love you more than anything in the world and miss you so much, my love ❤️
+        ❤️ I love you so much more than anything in the world and miss you so much, baby. ❤️
     </div>
 
     <script>
@@ -160,9 +160,9 @@
 
         function moveNo() {
             let noButton = document.getElementById('no-btn');
-            // Smooth dodging behavior
-            let x = Math.random() * 200 - 100; // Random move between -100px and +100px
-            let y = Math.random() * 200 - 100; // Random move between -100px and +100px
+            // Very fast and unpredictable dodging
+            let x = Math.random() * 300 - 150; // Random move between -150px and +150px
+            let y = Math.random() * 300 - 150; // Random move between -150px and +150px
             noButton.style.transform = `translate(${x}px, ${y}px)`;
         }
     </script>
