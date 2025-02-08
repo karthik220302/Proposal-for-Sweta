@@ -31,6 +31,43 @@
             position: relative;
         }
 
+        /* Locker Page Styles */
+        #locker-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 10;
+        }
+
+        #locker-screen input {
+            padding: 10px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        #locker-screen button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background: gold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
         .container {
             background: rgba(0, 0, 0, 0.6);
             padding: 40px;
@@ -60,7 +97,7 @@
 
         .btn-container {
             display: flex;
-            gap: 20px; /* Space between buttons */
+            gap: 20px;
             margin-top: 20px;
         }
 
@@ -84,11 +121,17 @@
 
         #no-btn {
             position: relative;
-            transition: all 0.1s ease; /* Super-fast transition for dodging */
+            transition: transform 1s ease, opacity 1s ease; /* Smooth bird-like disappearance */
         }
 
         .hidden {
             display: none;
+        }
+
+        /* Bird Fly Animation */
+        .fly-away {
+            transform: translate(-1000px, -1000px) rotate(-45deg);
+            opacity: 0;
         }
 
         /* Fade-in Animation */
@@ -127,18 +170,24 @@
         Your browser does not support the video tag.
     </video>
 
-    <div class="container">
+    <!-- Locker Screen -->
+    <div id="locker-screen">
+        <h1>Enter the Code to Unlock ❤️</h1>
+        <input type="password" id="code-input" placeholder="Enter 4-digit code">
+        <button onclick="unlockPage()">Unlock</button>
+    </div>
+
+    <div class="container hidden" id="main-content">
         <h1>Sweta, My Love 💖</h1>
         <p>My heart has always belonged to you. Distance can never change what we share.  
            You are my best friend, my greatest love, and my forever.  
            So today, on Proposal Day, I have a question for you…</p>
 
-
         <h2>Will You Marry Me? 💍</h2>
 
         <div class="btn-container">
             <button class="btn" onclick="showSurprise()">Yes! I will! 💕</button>
-            <button id="no-btn" class="btn" onmouseover="moveNo()">No 😢</button>
+            <button id="no-btn" class="btn" onmouseover="moveNo()" onclick="flyAway()">No 😢</button>
         </div>
 
         <div id="surprise-message" class="hidden">
@@ -153,17 +202,31 @@
     </div>
 
     <script>
+        function unlockPage() {
+            const code = document.getElementById('code-input').value;
+            if (code === "2004") {
+                document.getElementById('locker-screen').style.display = 'none';
+                document.getElementById('main-content').classList.remove('hidden');
+            } else {
+                alert('Incorrect Code! Please try again.');
+            }
+        }
+
         function showSurprise() {
-            // Show fullscreen message and keep video playing
             document.getElementById('fullscreen-message').classList.add('active');
         }
 
         function moveNo() {
             let noButton = document.getElementById('no-btn');
-            // Very fast and unpredictable dodging
-            let x = Math.random() * 300 - 150; // Random move between -150px and +150px
-            let y = Math.random() * 300 - 150; // Random move between -150px and +150px
-            noButton.style.transform = `translate(${x}px, ${y}px)`;
+            let x = Math.random() * (window.innerWidth - 200); // Random position within width
+            let y = Math.random() * (window.innerHeight - 100); // Random position within height
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+
+        function flyAway() {
+            const noButton = document.getElementById('no-btn');
+            noButton.classList.add('fly-away'); // Apply fly-away animation
         }
     </script>
 
