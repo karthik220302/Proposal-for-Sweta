@@ -77,26 +77,13 @@
         }
 
         #no-btn {
-            position: absolute;
+            position: relative;
+            margin-left: 20px;
             transition: all 0.3s ease;
         }
 
         .hidden {
             display: none;
-        }
-
-        /* Floating Flowers Animation */
-        .flower {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: url('https://cdn-icons-png.flaticon.com/512/2200/2200326.png') no-repeat center center/contain;
-            animation: floatFlower linear infinite;
-        }
-
-        @keyframes floatFlower {
-            0% { transform: translateY(0px) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
         }
 
         /* Fade-in Animation */
@@ -155,7 +142,7 @@
 
     <!-- Fullscreen Message -->
     <div id="fullscreen-message" class="fullscreen">
-        ❤️ Sweta, you are my everything. Let's make this love last forever! ❤️
+        ❤️ I love you so much more than anything in the world and miss you so much, baby. ❤️
     </div>
 
     <script>
@@ -166,25 +153,10 @@
 
         function moveNo() {
             let noButton = document.getElementById('no-btn');
-            let x = Math.random() * (window.innerWidth - 200);
-            let y = Math.random() * (window.innerHeight - 100);
-            noButton.style.left = x + 'px';
-            noButton.style.top = y + 'px';
+            let x = Math.random() * 50 + 50; // Moves left or right randomly
+            let y = Math.random() * 50 + 20; // Moves up or down randomly
+            noButton.style.transform = `translate(${x}px, ${y}px)`;
         }
-
-        // Generate Floating Flowers
-        function createFlower() {
-            const flower = document.createElement("div");
-            flower.classList.add("flower");
-            flower.style.left = Math.random() * window.innerWidth + "px";
-            flower.style.animationDuration = Math.random() * 4 + 3 + "s";
-            document.body.appendChild(flower);
-
-            setTimeout(() => {
-                flower.remove();
-            }, 7000);
-        }
-        setInterval(createFlower, 500);
     </script>
 
 </body>
