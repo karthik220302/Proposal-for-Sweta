@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweta, Will You Marry Me?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://source.unsplash.com/1600x900/?love,romantic') no-repeat center center/cover;
+            text-align: center;
+            color: white;
+            padding: 50px;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            color: white;
+            background: crimson;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: darkred;
+        }
+        #no-btn {
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
 
+    <div class="container">
+        <h1>Sweta, My Love 💖</h1>
+        <p>Even though you're in **Russia** becoming an amazing doctor, and I'm in the **UK** chasing my cybersecurity dreams,  
+        my heart has always belonged to you. Distance can never change what we share.  
+        You are my best friend, my greatest love, and my forever.  
+        So today, on **Proposal Day**, I have a question for you…</p>
+
+        <h2>Will You Marry Me? 💍</h2>
+
+        <button class="btn" onclick="showSurprise()">Yes! I will! 💕</button>
+        <button id="no-btn" class="btn" onmouseover="moveNo()">No 😢</button>
+
+        <div id="surprise-message" class="hidden">
+            <h2>Yay! I love you forever, Sweta! 💖</h2>
+            <p>Now let’s make all our dreams come true together! 💑</p>
+        </div>
+    </div>
+
+    <script>
+        function showSurprise() {
+            document.getElementById('surprise-message').classList.remove('hidden');
+        }
+
+        function moveNo() {
+            let noButton = document.getElementById('no-btn');
+            let x = Math.random() * (window.innerWidth - 200);
+            let y = Math.random() * (window.innerHeight - 100);
+            noButton.style.left = x + 'px';
+            noButton.style.top = y + 'px';
+        }
+    </script>
+
+</body>
+</html>
